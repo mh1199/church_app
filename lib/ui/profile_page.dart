@@ -32,8 +32,20 @@ class ProfilePageState extends State<ProfilePage>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(children: [
-              Text("Profile", style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),)
+             Row(children: [
+              Text("Profile", style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
+              Spacer(),
+               TextButton(
+                 onPressed: () {
+                   Routes.router.navigateTo(locator<NavigationService>().context(), Routes.login,replace: true);
+                 },
+                 style: TextButton.styleFrom(
+                   shape: RoundedRectangleBorder(
+                     borderRadius: BorderRadius.circular(20),
+                   ),
+                 ),
+                 child: Text('LOGIN'),
+               ),
             ],),
             SizedBox(height: 30,),
             Row(
@@ -86,7 +98,6 @@ class ProfilePageState extends State<ProfilePage>
               subtitle: 'Change your preference light or dark mode',
               onTap: () {},
             ),
-            SizedBox(height: 10),
             buildProfileOption(
               icon: Constants.PATH_ICON_PROFILE_EXIT,
               title: 'Leave Church',
@@ -94,18 +105,7 @@ class ProfilePageState extends State<ProfilePage>
               isDestructive: true,
               onTap: () {},
             ),
-            SizedBox(height: 20),
-            TextButton(
-              onPressed: () {
-                Routes.router.navigateTo(locator<NavigationService>().context(), Routes.login,replace: true);
-              },
-              style: TextButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              child: Text('LOGIN'),
-            ),
+
           ],
         ),
       ),
