@@ -20,9 +20,9 @@ enum StatusTypeEnum {
 }
 
 enum TabItemEnum {
-  CALLS,
-  CHAT,
-  SETTING,
+  HOME,
+  CERT,
+  PROFILE
 }
 
 enum SettingType {

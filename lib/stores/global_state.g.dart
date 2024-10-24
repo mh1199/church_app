@@ -65,6 +65,13 @@ mixin _$GlobalState on _GlobalState, Store {
               () => super.getCurrentBackPressTime,
               name: '_GlobalState.getCurrentBackPressTime'))
           .value;
+  Computed<BaseStore?>? _$getBaseStoreComputed;
+
+  @override
+  BaseStore? get getBaseStore =>
+      (_$getBaseStoreComputed ??= Computed<BaseStore?>(() => super.getBaseStore,
+              name: '_GlobalState.getBaseStore'))
+          .value;
   Computed<bool>? _$getDrawerComputed;
 
   @override
@@ -120,6 +127,22 @@ mixin _$GlobalState on _GlobalState, Store {
       (_$getPrivateKeyComputed ??= Computed<String>(() => super.getPrivateKey,
               name: '_GlobalState.getPrivateKey'))
           .value;
+
+  late final _$baseStoreAtom =
+      Atom(name: '_GlobalState.baseStore', context: context);
+
+  @override
+  BaseStore? get baseStore {
+    _$baseStoreAtom.reportRead();
+    return super.baseStore;
+  }
+
+  @override
+  set baseStore(BaseStore? value) {
+    _$baseStoreAtom.reportWrite(value, super.baseStore, () {
+      super.baseStore = value;
+    });
+  }
 
   late final _$appbarColorAtom =
       Atom(name: '_GlobalState.appbarColor', context: context);
@@ -396,6 +419,17 @@ mixin _$GlobalState on _GlobalState, Store {
       ActionController(name: '_GlobalState', context: context);
 
   @override
+  dynamic setBaseStore(BaseStore? value) {
+    final _$actionInfo = _$_GlobalStateActionController.startAction(
+        name: '_GlobalState.setBaseStore');
+    try {
+      return super.setBaseStore(value);
+    } finally {
+      _$_GlobalStateActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic setMaintenance(bool value) {
     final _$actionInfo = _$_GlobalStateActionController.startAction(
         name: '_GlobalState.setMaintenance');
@@ -574,6 +608,7 @@ mixin _$GlobalState on _GlobalState, Store {
   @override
   String toString() {
     return '''
+baseStore: ${baseStore},
 appbarColor: ${appbarColor},
 maintenance: ${maintenance},
 timeout: ${timeout},
@@ -598,6 +633,7 @@ getTotalCount: ${getTotalCount},
 getUuid: ${getUuid},
 getHtmlString: ${getHtmlString},
 getCurrentBackPressTime: ${getCurrentBackPressTime},
+getBaseStore: ${getBaseStore},
 getDrawer: ${getDrawer},
 getIsInForeground: ${getIsInForeground},
 getRefresh: ${getRefresh},
