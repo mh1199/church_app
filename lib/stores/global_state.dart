@@ -19,6 +19,7 @@ import '../services/navigation_service.dart';
 // import '../services/preferences_service.dart';
 import '../services/rest_service.dart';
 import '../widgets/custom_page.dart';
+import 'base_store.dart';
 // import '../widgets/modal_bottom_sheets.dart';
 // import 'auth_store.dart';
 // import 'base_store.dart';
@@ -30,8 +31,8 @@ class GlobalState = _GlobalState with _$GlobalState;
 
 abstract class _GlobalState with Store {
 
-  // @observable
-  // BaseStore? baseStore;
+  @observable
+  BaseStore? baseStore;
 
   @observable
   Color appbarColor = Colors.white;
@@ -109,6 +110,9 @@ abstract class _GlobalState with Store {
   DateTime? get getCurrentBackPressTime => currentBackPressTime;
 
   @computed
+  BaseStore? get getBaseStore => baseStore;
+
+  @computed
   bool get getDrawer => drawer;
 
   @computed
@@ -131,6 +135,11 @@ abstract class _GlobalState with Store {
 
   @computed
   String get getPrivateKey => privateKey;
+
+  @action
+  setBaseStore(BaseStore? value) {
+    baseStore = value;
+  }
 
   @action
   show() async {

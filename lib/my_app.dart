@@ -86,7 +86,7 @@ class MyAppState extends State<MyApp> {
             debugShowCheckedModeBanner: false,
             initialRoute: Routes.base,
             routes: <String, WidgetBuilder>{
-              Routes.base: (context) => const BasePage(),
+              Routes.base: (context) => const BasePage(page: 0,),
             },
             onGenerateRoute: Routes.router.generator,
             navigatorObservers: [

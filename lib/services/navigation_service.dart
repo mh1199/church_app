@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../ui/base_page.dart';
+import '../ui/cert_page.dart';
+import '../ui/home_page.dart';
+import '../ui/profile_page.dart';
+
 
 
 class NavigationService {
@@ -8,9 +13,10 @@ class NavigationService {
 
   // final GlobalKey<DashboardPageState> dashboardViewKey = GlobalKey<DashboardPageState>();
   //
-  // final GlobalKey<CallPageState> callPageViewKey = GlobalKey<CallPageState>();
-  //   final GlobalKey<ChatPageState> chatPageViewKey = GlobalKey<ChatPageState>();
-  // final GlobalKey<SettingPageState> settingPageViewKey = GlobalKey<SettingPageState>();
+  final GlobalKey<BasePageState> basePageViewKey = GlobalKey<BasePageState>();
+    final GlobalKey<HomePageState> homePageViewKey = GlobalKey<HomePageState>();
+  final GlobalKey<CertPageState> certPageViewKey = GlobalKey<CertPageState>();
+  final GlobalKey<ProfilePageState> profilePageViewKey = GlobalKey<ProfilePageState>();
 
   Future<dynamic> navigateTo(String routeName) {
     return navigatorKey.currentState!.pushNamed(routeName);

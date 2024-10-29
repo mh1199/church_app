@@ -1,4 +1,5 @@
 
+import 'package:church_system/ui/login_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluro/fluro.dart';
@@ -22,9 +23,11 @@ class Routes {
   static late FluroRouter router;
 
   static const String base = '/baseView';
+  static const String login = '/loginView';
 
   static void configureRoutes(FluroRouter router) {
     router.define(base, handler: baseHandler);
+    router.define(login, handler: loginHandler);
 
     router.notFoundHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
@@ -37,6 +40,23 @@ class Routes {
 
 var baseHandler = Handler(
   handlerFunc: (context, params) {
-    return const BasePage();
+    String? page = params['page']?.first;
+    print("page $page");
+    int p = 0;
+    if (page != null && page.isNotEmpty) p = int.parse(page);
+    return BasePage(page: p);
   },
 );
+
+var loginHandler = Handler(
+  handlerFunc: (context, params) {
+    return const LoginPage();
+  },
+);
+
+
+// var baseHandler = Handler(
+//   handlerFunc: (context, params) {
+//     return const BasePage();
+//   },
+// );
