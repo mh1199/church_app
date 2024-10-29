@@ -8,6 +8,8 @@ class Constants{
   static const String PATH_ICON_PROFILE_PROFILE = 'assets/images/profile-profile.png';
   static const String PATH_ICON_PROFILE_TRANSLATE = 'assets/images/profile-translate.png';
 
+  static const String PATH_PLACEHOLDER_LOGIN = 'assets/images/placeholder_login.png';
+
 
   // static const String PATH_IMG_NO_CERT = 'assets/images/profile.png';
 

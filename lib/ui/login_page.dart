@@ -20,6 +20,8 @@ class LoginPageState extends State<LoginPage>
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  bool _isPasswordVisible = false;
+
   @override
   void dispose() {
     emailController.dispose();
@@ -51,60 +53,163 @@ class LoginPageState extends State<LoginPage>
   Widget build(BuildContext context) {
     return
       Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Welcome to the Church Member Portal',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 32.0), // Space between welcome text and input fields
-              TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              TextField(
-                controller: passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              TextButton(
-                onPressed: _login,
-                child: const Text('BACK', style: TextStyle(color: Colors.white),),
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue, // Button color
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              GestureDetector(
-                onTap: () {
-                  // Handle forgot password logic
-                  print('Forgot Password tapped');
-                },
-                child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
+        resizeToAvoidBottomInset: false,
+        body:
+        // Padding(
+        //   padding: const EdgeInsets.all(16.0),
+        //   child: Column(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: [
+        //       const Text(
+        //         'Welcome to the Church Member Portal',
+        //         style: TextStyle(
+        //           fontSize: 24,
+        //           fontWeight: FontWeight.bold,
+        //           color: Colors.blue,
+        //         ),
+        //         textAlign: TextAlign.center,
+        //       ),
+        //       const SizedBox(height: 32.0), // Space between welcome text and input fields
+        //       TextField(
+        //         controller: emailController,
+        //         decoration: InputDecoration(
+        //           labelText: 'Email',
+        //           border: OutlineInputBorder(),
+        //         ),
+        //       ),
+        //       const SizedBox(height: 16.0),
+        //       TextField(
+        //         controller: passwordController,
+        //         obscureText: true,
+        //         decoration: InputDecoration(
+        //           labelText: 'Password',
+        //           border: OutlineInputBorder(),
+        //         ),
+        //       ),
+        //       const SizedBox(height: 16.0),
+        //       TextButton(
+        //         onPressed: _login,
+        //         child: const Text('BACK', style: TextStyle(color: Colors.white),),
+        //         style: TextButton.styleFrom(
+        //           backgroundColor: Colors.blue, // Button color
+        //         ),
+        //       ),
+        //       const SizedBox(height: 16.0),
+        //       GestureDetector(
+        //         onTap: () {
+        //           // Handle forgot password logic
+        //           print('Forgot Password tapped');
+        //         },
+        //         child: const Text(
+        //           'Forgot Password?',
+        //           style: TextStyle(
+        //             color: Colors.blue,
+        //             fontWeight: FontWeight.bold,
+        //           ),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child:
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(child: Column(children: [
+                  SizedBox(height: 250),
+                  Text(
+                    'Welcome to Church A',
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  SizedBox(height: 32),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white, // Optional background color
+                      borderRadius: BorderRadius.circular(8.0), // Rounded corners
+                      border: Border.all(color: Colors.grey, width: 1), // Grey border
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 12), // Add padding around the TextFormField
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        border: InputBorder.none, // Remove the inner border from TextFormField
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white, // Optional background color
+                      borderRadius: BorderRadius.circular(8.0), // Rounded corners
+                      border: Border.all(color: Colors.grey, width: 1), // Grey border
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 12), // Add padding around the TextFormField
+                    child: TextFormField(
+                      obscureText: !_isPasswordVisible,
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        border: InputBorder.none,
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _isPasswordVisible = !_isPasswordVisible;
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                ],)),
+
+
+                SizedBox(height: 32),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed:
+                      _login
+                    ,
+                    child: Text('Login', style: TextStyle(fontSize: 16, color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: 16),
+                TextButton(
+                  onPressed: () {
+                    // Handle forget password
+                  },
+                  child: Text(
+                    'Forget password?',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       );
