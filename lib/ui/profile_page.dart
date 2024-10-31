@@ -34,18 +34,18 @@ class ProfilePageState extends State<ProfilePage>
           children: [
              Row(children: [
               Text("Profile", style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),),
-              Spacer(),
-               TextButton(
-                 onPressed: () {
-                   Routes.router.navigateTo(locator<NavigationService>().context(), Routes.login,replace: true);
-                 },
-                 style: TextButton.styleFrom(
-                   shape: RoundedRectangleBorder(
-                     borderRadius: BorderRadius.circular(20),
-                   ),
-                 ),
-                 child: Text('LOGIN'),
-               ),
+              // Spacer(),
+              //  TextButton(
+              //    onPressed: () {
+              //      Routes.router.navigateTo(locator<NavigationService>().context(), Routes.login);
+              //    },
+              //    style: TextButton.styleFrom(
+              //      shape: RoundedRectangleBorder(
+              //        borderRadius: BorderRadius.circular(20),
+              //      ),
+              //    ),
+              //    child: Text('LOGIN'),
+              //  ),
             ],),
             SizedBox(height: 30,),
             Row(
