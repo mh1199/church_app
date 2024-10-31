@@ -84,30 +84,8 @@ class BasePageState extends State<BasePage>
       // },
       // child:
       WillPopScope(
-        onWillPop: () {
-          var loading = _baseStore.globalState.getLoading;
-          if (loading) return Future.value(false);
-
-          var drawer = _baseStore.globalState.getDrawer;
-          if (drawer) return Future.value(false);
-
-          DateTime? now = DateTime.now();
-          bool doubleTap = _baseStore.globalState.getCurrentBackPressTime ==
-              null
-              ? true
-              : now.difference(_baseStore.globalState.getCurrentBackPressTime ??
-              DateTime.now()) >
-              Duration(seconds: 2);
-
-          print("doubleTap");
-          if (doubleTap) {
-            BotToast.showText(text: 'ExitAppDesc'.tr());
-
-            _baseStore.globalState.setCurrentBackPressTime(now);
-            return Future.value(false);
-          }
-          SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-          return Future.value(true);
+        onWillPop: () async{
+          return false;
         },
         child: SafeArea(
           bottom: Platform.isAndroid,

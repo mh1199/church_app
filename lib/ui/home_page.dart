@@ -3,6 +3,10 @@ import 'dart:async';
 import 'package:after_layout/after_layout.dart';
 import 'package:flutter/material.dart';
 
+import '../configs/locator.dart';
+import '../configs/routes_handler.dart';
+import '../services/navigation_service.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -153,7 +157,8 @@ class EventCard extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    // Handle RSVP action
+                    Routes.router.navigateTo(
+                        locator<NavigationService>().context(), Routes.eventDetail);
                   },
                   style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
