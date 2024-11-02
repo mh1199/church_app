@@ -1,4 +1,7 @@
 
+import 'package:church_system/ui/download_cert_page.dart';
+import 'package:church_system/ui/edit_account_page.dart';
+import 'package:church_system/ui/forgot_password_page.dart';
 import 'package:church_system/ui/login_page.dart';
 import 'package:church_system/ui/register_page.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +15,7 @@ import '../helpers/app.dart';
 import '../stores/global_state.dart';
 
 import '../ui/base_page.dart';
+import '../ui/event_detail_page.dart';
 import '../widgets/custom_page.dart';
 // import '/helpers/argument.dart';
 
@@ -26,11 +30,19 @@ class Routes {
   static const String base = '/baseView';
   static const String login = '/loginView';
   static const String register = '/registerView';
+  static const String eventDetail = '/eventDetailView';
+  static const String forgotPassword = '/forgotPasswordView';
+  static const String downloadCert = '/downloadCertView';
+  static const String editAccount = '/editAccountView';
 
   static void configureRoutes(FluroRouter router) {
     router.define(base, handler: baseHandler);
     router.define(login, handler: loginHandler);
     router.define(register, handler: registerHandler);
+    router.define(eventDetail, handler: eventDetailHandler);
+    router.define(forgotPassword, handler: forgotPasswordHandler);
+    router.define(downloadCert, handler: downloadCertHandler);
+    router.define(editAccount, handler: editAccountHandler);
 
     router.notFoundHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
@@ -60,6 +72,30 @@ var loginHandler = Handler(
 var registerHandler = Handler(
   handlerFunc: (context, params) {
     return const RegisterPage();
+  },
+);
+
+var eventDetailHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPage();
+  },
+);
+
+var forgotPasswordHandler = Handler(
+  handlerFunc: (context, params) {
+    return const ForgotPasswordPage();
+  },
+);
+
+var downloadCertHandler = Handler(
+  handlerFunc: (context, params) {
+    return const DownloadCertPage();
+  },
+);
+
+var editAccountHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EditAccountPage();
   },
 );
 

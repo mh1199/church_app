@@ -72,38 +72,47 @@ class ProfilePageState extends State<ProfilePage>
               icon: Constants.PATH_ICON_PROFILE_PROFILE,
               title: 'Account',
               subtitle: 'Change account and personal information',
-              onTap: () {},
+              onTap: () {
+                Routes.router.navigateTo(
+                    locator<NavigationService>().context(), Routes.editAccount);
+              },
             ),
             buildProfileOption(
               icon: Constants.PATH_ICON_PROFILE_CERT,
               title: 'Download E-Member Cert',
               subtitle: 'Download E-Member certificate as PDF',
-              onTap: () {},
+              onTap: () {
+                Routes.router.navigateTo(
+                    locator<NavigationService>().context(), Routes.downloadCert);
+              },
             ),
-            buildProfileOption(
-              icon: Constants.PATH_ICON_PROFILE_CERT,
-              title: 'Download E-Baptism Cert',
-              subtitle: 'Download E-Baptism certificate as PDF',
-              onTap: () {},
-            ),
-            buildProfileOption(
-              icon: Constants.PATH_ICON_PROFILE_TRANSLATE,
-              title: 'Language',
-              subtitle: 'Change your preference language',
-              onTap: () {},
-            ),
-            buildProfileOption(
-              icon: Constants.PATH_ICON_PROFILE_TRANSLATE,
-              title: 'Mode',
-              subtitle: 'Change your preference light or dark mode',
-              onTap: () {},
-            ),
+            // buildProfileOption(
+            //   icon: Constants.PATH_ICON_PROFILE_CERT,
+            //   title: 'Download E-Baptism Cert',
+            //   subtitle: 'Download E-Baptism certificate as PDF',
+            //   onTap: () {},
+            // ),
+            // buildProfileOption(
+            //   icon: Constants.PATH_ICON_PROFILE_TRANSLATE,
+            //   title: 'Language',
+            //   subtitle: 'Change your preference language',
+            //   onTap: () {},
+            // ),
+            // buildProfileOption(
+            //   icon: Constants.PATH_ICON_PROFILE_TRANSLATE,
+            //   title: 'Mode',
+            //   subtitle: 'Change your preference light or dark mode',
+            //   onTap: () {},
+            // ),
             buildProfileOption(
               icon: Constants.PATH_ICON_PROFILE_EXIT,
               title: 'Leave Church',
               subtitle: 'Leave the current church',
               isDestructive: true,
-              onTap: () {},
+              onTap: () {
+                var route = '${Routes.register}';
+                locator<NavigationService>().navigateUntil(route);
+              },
             ),
 
           ],
