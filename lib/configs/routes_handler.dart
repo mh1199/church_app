@@ -14,6 +14,8 @@ import 'package:provider/provider.dart';
 import '../helpers/app.dart';
 import '../stores/global_state.dart';
 
+import '../ui/add_church_page.dart';
+import '../ui/add_event_page.dart';
 import '../ui/base_page.dart';
 import '../ui/event_detail_page.dart';
 import '../widgets/custom_page.dart';
@@ -34,6 +36,8 @@ class Routes {
   static const String forgotPassword = '/forgotPasswordView';
   static const String downloadCert = '/downloadCertView';
   static const String editAccount = '/editAccountView';
+  static const String addEvent = '/addEventView';
+  static const String addChurch = '/addChurchView';
 
   static void configureRoutes(FluroRouter router) {
     router.define(base, handler: baseHandler);
@@ -43,6 +47,8 @@ class Routes {
     router.define(forgotPassword, handler: forgotPasswordHandler);
     router.define(downloadCert, handler: downloadCertHandler);
     router.define(editAccount, handler: editAccountHandler);
+    router.define(addEvent, handler: addEventHandler);
+    router.define(addChurch, handler: addChurchHandler);
 
     router.notFoundHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
@@ -99,6 +105,17 @@ var editAccountHandler = Handler(
   },
 );
 
+var addEventHandler = Handler(
+  handlerFunc: (context, params) {
+    return const AddEventPage();
+  }
+);
+
+var addChurchHandler = Handler(
+    handlerFunc: (context, params) {
+      return const AddChurchPage();
+    }
+);
 
 // var baseHandler = Handler(
 //   handlerFunc: (context, params) {

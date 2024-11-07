@@ -105,6 +105,24 @@ class ProfilePageState extends State<ProfilePage>
             //   onTap: () {},
             // ),
             buildProfileOption(
+              icon: Constants.PATH_ICON_PROFILE_TRANSLATE,
+              title: 'Add Event',
+              subtitle: 'Add Event Form',
+              onTap: () {
+                Routes.router.navigateTo(
+                    locator<NavigationService>().context(), Routes.addEvent);
+              },
+            ),
+            buildProfileOption(
+              icon: Constants.PATH_ICON_HOME,
+              title: 'Add Church',
+              subtitle: 'Add Church Form',
+              onTap: () {
+                Routes.router.navigateTo(
+                    locator<NavigationService>().context(), Routes.addChurch);
+              },
+            ),
+            buildProfileOption(
               icon: Constants.PATH_ICON_PROFILE_EXIT,
               title: 'Leave Church',
               subtitle: 'Leave the current church',
