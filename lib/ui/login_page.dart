@@ -38,7 +38,7 @@ class LoginPageState extends State<LoginPage>
 
     // Navigator.of(locator<NavigationService>().context()).pop();
 
-    Routes.router.navigateTo(locator<NavigationService>().context(), Routes.base,replace: true);
+    Routes.router.navigateTo(locator<NavigationService>().context(), Routes.otp,replace: false);
 
 
     // Add your login validation or API call here
@@ -58,13 +58,15 @@ class LoginPageState extends State<LoginPage>
           return false;
         },
         child: Scaffold(
+          backgroundColor: Color(0xFFF002B50),
           resizeToAvoidBottomInset: false,
           appBar: AppBar(
+            backgroundColor: Color(0xFFF002B50),
             leading: IconButton(onPressed: () {
               var route = '${Routes.register}';
               locator<NavigationService>().navigateUntil(route);
             },
-                icon: Icon(Icons.arrow_back)),
+                icon: Icon(Icons.arrow_back, color: Colors.white,)),
           ),
           body:
           // Padding(
@@ -137,7 +139,7 @@ class LoginPageState extends State<LoginPage>
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                     SizedBox(height: 8),
@@ -146,7 +148,7 @@ class LoginPageState extends State<LoginPage>
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 14,
-                        color: Colors.grey,
+                        color: Colors.white,
                       ),
                     ),
                     SizedBox(height: 32),
@@ -203,7 +205,7 @@ class LoginPageState extends State<LoginPage>
                       child: Text('Login', style: TextStyle(fontSize: 16, color: Colors.white)),
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(vertical: 16),
-                        backgroundColor: Colors.blue,
+                        backgroundColor: Colors.deepOrange,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
@@ -218,7 +220,7 @@ class LoginPageState extends State<LoginPage>
                     },
                     child: Text(
                       'Forget password?',
-                      style: TextStyle(color: Colors.blue),
+                      style: TextStyle(color: Colors.deepOrange),
                     ),
                   ),
                 ],

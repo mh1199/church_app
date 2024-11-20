@@ -33,6 +33,7 @@ class RegisterPageState extends State<RegisterPage>
         return false;
       },
       child: Scaffold(
+        backgroundColor: Color(0xFFF002B50),
         resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -51,7 +52,7 @@ class RegisterPageState extends State<RegisterPage>
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color: Colors.white,
                 ),
               ),
               SizedBox(height: 8),
@@ -60,7 +61,7 @@ class RegisterPageState extends State<RegisterPage>
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14,
-                  color: Colors.grey,
+                  color: Colors.white,
                 ),
               ),
               SizedBox(height: 32),
@@ -166,7 +167,7 @@ class RegisterPageState extends State<RegisterPage>
                   },
                   child: Text('Sign Up', style: TextStyle(fontSize: 16, color: Colors.white)),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Colors.deepOrange,
                     padding: EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
@@ -184,7 +185,7 @@ class RegisterPageState extends State<RegisterPage>
                 child: Text(
                   'Already a member? Login Here',
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: Colors.deepOrange,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

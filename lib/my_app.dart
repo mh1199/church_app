@@ -2,6 +2,7 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:church_system/ui/base_page.dart';
 import 'package:church_system/ui/register_page.dart';
+import 'package:church_system/ui/splash_page.dart';
 import 'package:church_system/widgets/custom_page.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -85,10 +86,12 @@ class MyAppState extends State<MyApp> {
 
             title: 'CHURCH',
             debugShowCheckedModeBanner: false,
-            initialRoute: Routes.register,
+            // initialRoute: Routes.register,
+            initialRoute: Routes.root,
             routes: <String, WidgetBuilder>{
               // Routes.base: (context) => const BasePage(page: 0,),
-              Routes.register: (context) => const RegisterPage(),
+              // Routes.register: (context) => const RegisterPage(),
+              Routes.root: (context) => const SplashPage(),
             },
             onGenerateRoute: Routes.router.generator,
             navigatorObservers: [

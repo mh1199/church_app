@@ -33,12 +33,14 @@ class ForgotPasswordPageState extends State<ForgotPasswordPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF002B50),
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        backgroundColor: Color(0xFFF002B50),
         leading: IconButton(onPressed: () {
           Navigator.of(locator<NavigationService>().context()).pop();
         },
-            icon: Icon(Icons.arrow_back)),
+            icon: Icon(Icons.arrow_back, color: Colors.white,)),
       ),
       body:
       Center(
@@ -55,7 +57,7 @@ class ForgotPasswordPageState extends State<ForgotPasswordPage>
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
                 SizedBox(height: 32),
@@ -83,7 +85,7 @@ class ForgotPasswordPageState extends State<ForgotPasswordPage>
                   child: Text('Reset', style: TextStyle(fontSize: 16, color: Colors.white)),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.symmetric(vertical: 16),
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Colors.deepOrange,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),

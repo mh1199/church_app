@@ -1,9 +1,16 @@
 
 import 'package:church_system/ui/download_cert_page.dart';
 import 'package:church_system/ui/edit_account_page.dart';
+import 'package:church_system/ui/event_detail_page2.dart';
+import 'package:church_system/ui/event_detail_page3.dart';
+import 'package:church_system/ui/event_detail_page4.dart';
+import 'package:church_system/ui/event_detail_page5.dart';
 import 'package:church_system/ui/forgot_password_page.dart';
 import 'package:church_system/ui/login_page.dart';
+import 'package:church_system/ui/otp_page.dart';
 import 'package:church_system/ui/register_page.dart';
+import 'package:church_system/ui/splash_second.dart';
+import 'package:church_system/ui/splash_three.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluro/fluro.dart';
@@ -18,6 +25,8 @@ import '../ui/add_church_page.dart';
 import '../ui/add_event_page.dart';
 import '../ui/base_page.dart';
 import '../ui/event_detail_page.dart';
+import '../ui/event_detail_page1.dart';
+import '../ui/splash_page.dart';
 import '../widgets/custom_page.dart';
 // import '/helpers/argument.dart';
 
@@ -29,6 +38,9 @@ class Routes {
 
   static late FluroRouter router;
 
+  static const String root = '/splash';
+  static const String secondSplash = '/secondSplash';
+  static const String thirdSplash = '/thirdSplash';
   static const String base = '/baseView';
   static const String login = '/loginView';
   static const String register = '/registerView';
@@ -38,8 +50,17 @@ class Routes {
   static const String editAccount = '/editAccountView';
   static const String addEvent = '/addEventView';
   static const String addChurch = '/addChurchView';
+  static const String otp = '/otp';
+  static const String eventOne = '/eventOne';
+  static const String eventTwo = '/eventTwo';
+  static const String eventThree = '/eventThree';
+  static const String eventFour = '/eventFour';
+  static const String eventFive = '/eventFive';
 
   static void configureRoutes(FluroRouter router) {
+    router.define(root, handler: rootHandler);
+    router.define(secondSplash, handler: secondSplashHandler);
+    router.define(thirdSplash, handler: thirdSplashHandler);
     router.define(base, handler: baseHandler);
     router.define(login, handler: loginHandler);
     router.define(register, handler: registerHandler);
@@ -49,6 +70,12 @@ class Routes {
     router.define(editAccount, handler: editAccountHandler);
     router.define(addEvent, handler: addEventHandler);
     router.define(addChurch, handler: addChurchHandler);
+    router.define(otp, handler: otpHandler);
+    router.define(eventOne, handler: eventOneHandler);
+    router.define(eventTwo, handler: eventTwoHandler);
+    router.define(eventThree, handler: eventThreeHandler);
+    router.define(eventFour, handler: eventFourHandler);
+    router.define(eventFive, handler: eventFiveHandler);
 
     router.notFoundHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
@@ -58,6 +85,24 @@ class Routes {
   }
 
 }
+
+var rootHandler = Handler(
+  handlerFunc: (context, params) {
+    return const SplashPage();
+  },
+);
+
+var secondSplashHandler = Handler(
+  handlerFunc: (context, params) {
+    return const SplashSecond();
+  },
+);
+
+var thirdSplashHandler = Handler(
+  handlerFunc: (context, params) {
+    return const SplashThree();
+  },
+);
 
 var baseHandler = Handler(
   handlerFunc: (context, params) {
@@ -115,6 +160,42 @@ var addChurchHandler = Handler(
     handlerFunc: (context, params) {
       return const AddChurchPage();
     }
+);
+
+var otpHandler = Handler(
+  handlerFunc: (context, params) {
+    return const OtpPage();
+  },
+);
+
+var eventOneHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageOne();
+  },
+);
+
+var eventTwoHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageTwo();
+  },
+);
+
+var eventThreeHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageThree();
+  },
+);
+
+var eventFourHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageFour();
+  },
+);
+
+var eventFiveHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageFive();
+  },
 );
 
 // var baseHandler = Handler(

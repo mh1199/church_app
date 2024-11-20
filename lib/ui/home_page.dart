@@ -17,6 +17,59 @@ class HomePage extends StatefulWidget {
 class HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin, AfterLayoutMixin<HomePage> {
 
+  final List<Map<String, dynamic>> events = [
+    {
+      "title": 'Worship Night: A Heart of Gratitude',
+      'time': '7:00 PM',
+      'location': 'City Park',
+      'image': 'assets/images/event_1.jpg',
+  'onRSVP': () {
+    Routes.router.navigateTo(
+        locator<NavigationService>().context(), Routes.eventOne);
+  }
+    },
+    {
+      'title': 'Family Fun and Faith Festival',
+      'time': '5:30 PM',
+      'location': 'Art Gallery',
+      'image': 'assets/images/event_2.jpeg',
+      'onRSVP': ()  {
+        Routes.router.navigateTo(
+            locator<NavigationService>().context(), Routes.eventTwo);
+      }
+    },
+    {
+      'title': 'Prayer Breakfast: Strengthening Our Faith',
+      'time': '3:00 PM',
+      'location': 'Tech Hub',
+      'image': 'assets/images/event_three.jpg',
+      'onRSVP': ()  {
+        Routes.router.navigateTo(
+            locator<NavigationService>().context(), Routes.eventThree);
+      }
+    },
+    {
+      'title': 'Youth Empowerment Retreat: Shine Your Light',
+      'time': '12:00 PM',
+      'location': 'Main Street',
+      'image': 'assets/images/event_four.jpg',
+      'onRSVP': () {
+        Routes.router.navigateTo(
+            locator<NavigationService>().context(), Routes.eventFour);
+      }
+    },
+    {
+      'title': 'Community Outreach: Serve with Love',
+      'time': '8:00 AM',
+      'location': 'Riverside Park',
+      'image': 'assets/images/event_five.jpg',
+      'onRSVP': ()  {
+        Routes.router.navigateTo(
+            locator<NavigationService>().context(), Routes.eventFive);
+      }
+    },
+  ];
+
   @override
   void afterFirstLayout(BuildContext context) {
 
@@ -57,10 +110,16 @@ class HomePageState extends State<HomePage>
                   ),
                 ),
                 SizedBox(height: 15),
-                EventCard(
-                  imageUrl: 'assets/images/placeholder.png', // replace with your image asset
-                  title: 'Title',
-                  time: '10:30 PM, Location',
+                // EventCard(
+                //   imageUrl: 'assets/images/placeholder.png', // replace with your image asset
+                //   title: 'Title',
+                //   time: '10:30 PM, Location',
+                // ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: events.map((event) => _buildEventCard(event)).toList(),
+                  ),
                 ),
                 SizedBox(height: 30),
                 Text(
@@ -236,3 +295,65 @@ class RSVPCard extends StatelessWidget {
     );
   }
 }
+
+Widget _buildEventCard(Map<String, dynamic> event) {
+  return Container(
+    margin: EdgeInsets.only(right: 16),
+    width: 300,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(16),
+      color: Colors.white,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey.withOpacity(0.2),
+          blurRadius: 6,
+          spreadRadius: 2,
+          offset: Offset(0, 3),
+        ),
+      ],
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+          child: Image.asset(
+            event['image']!,
+            height: 150,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                event['title']!,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 4),
+              Text(
+                '${event['time']!}, ${event['location']!}',
+                style: TextStyle(color: Colors.grey),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                    onPressed: event['onRSVP'],
+                  child: Text(
+                    'RSVP Now',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+
