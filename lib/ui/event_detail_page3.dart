@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import '../configs/locator.dart';
 import '../services/navigation_service.dart';
 
-class EventDetailPage extends StatefulWidget {
-  const EventDetailPage({Key? key}) : super(key: key);
+class EventDetailPageThree extends StatefulWidget {
+  const EventDetailPageThree({Key? key}) : super(key: key);
 
   @override
-  State<EventDetailPage> createState() => EventDetailPageState();
+  State<EventDetailPageThree> createState() => EventDetailPageThreeState();
 }
 
-final String eventImagePath = 'assets/images/event_placeholder.png';
+final String eventImagePath = 'assets/images/event_three.jpg';
 final String locationImagePath = 'assets/images/placeholder.png';
 final String profileImagePath = 'assets/images/placeholder.png';
 final String locationIconPath = 'assets/images/placeholder.png';
@@ -25,8 +25,8 @@ void _openGoogleMaps() async {
   // }
 }
 
-class EventDetailPageState extends State<EventDetailPage>
-    with SingleTickerProviderStateMixin, AfterLayoutMixin<EventDetailPage> {
+class EventDetailPageThreeState extends State<EventDetailPageThree>
+    with SingleTickerProviderStateMixin, AfterLayoutMixin<EventDetailPageThree> {
 
   @override
   void afterFirstLayout(BuildContext context) {

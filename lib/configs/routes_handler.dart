@@ -1,6 +1,10 @@
 
 import 'package:church_system/ui/download_cert_page.dart';
 import 'package:church_system/ui/edit_account_page.dart';
+import 'package:church_system/ui/event_detail_page2.dart';
+import 'package:church_system/ui/event_detail_page3.dart';
+import 'package:church_system/ui/event_detail_page4.dart';
+import 'package:church_system/ui/event_detail_page5.dart';
 import 'package:church_system/ui/forgot_password_page.dart';
 import 'package:church_system/ui/login_page.dart';
 import 'package:church_system/ui/otp_page.dart';
@@ -21,6 +25,7 @@ import '../ui/add_church_page.dart';
 import '../ui/add_event_page.dart';
 import '../ui/base_page.dart';
 import '../ui/event_detail_page.dart';
+import '../ui/event_detail_page1.dart';
 import '../ui/splash_page.dart';
 import '../widgets/custom_page.dart';
 // import '/helpers/argument.dart';
@@ -46,6 +51,11 @@ class Routes {
   static const String addEvent = '/addEventView';
   static const String addChurch = '/addChurchView';
   static const String otp = '/otp';
+  static const String eventOne = '/eventOne';
+  static const String eventTwo = '/eventTwo';
+  static const String eventThree = '/eventThree';
+  static const String eventFour = '/eventFour';
+  static const String eventFive = '/eventFive';
 
   static void configureRoutes(FluroRouter router) {
     router.define(root, handler: rootHandler);
@@ -61,6 +71,11 @@ class Routes {
     router.define(addEvent, handler: addEventHandler);
     router.define(addChurch, handler: addChurchHandler);
     router.define(otp, handler: otpHandler);
+    router.define(eventOne, handler: eventOneHandler);
+    router.define(eventTwo, handler: eventTwoHandler);
+    router.define(eventThree, handler: eventThreeHandler);
+    router.define(eventFour, handler: eventFourHandler);
+    router.define(eventFive, handler: eventFiveHandler);
 
     router.notFoundHandler = Handler(
       handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
@@ -150,6 +165,36 @@ var addChurchHandler = Handler(
 var otpHandler = Handler(
   handlerFunc: (context, params) {
     return const OtpPage();
+  },
+);
+
+var eventOneHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageOne();
+  },
+);
+
+var eventTwoHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageTwo();
+  },
+);
+
+var eventThreeHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageThree();
+  },
+);
+
+var eventFourHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageFour();
+  },
+);
+
+var eventFiveHandler = Handler(
+  handlerFunc: (context, params) {
+    return const EventDetailPageFive();
   },
 );
 
