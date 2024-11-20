@@ -62,6 +62,12 @@ class HomePageState extends State<HomePage>
                   title: 'Title',
                   time: '10:30 PM, Location',
                 ),
+                // SingleChildScrollView(
+                //   scrollDirection: Axis.horizontal,
+                //   child: Row(
+                //     children: List.generate(5, (index) => _buildEventCard()),
+                //   ),
+                // ),
                 SizedBox(height: 30),
                 Text(
                   'My RSVP',
@@ -236,3 +242,5 @@ class RSVPCard extends StatelessWidget {
     );
   }
 }
+
+
