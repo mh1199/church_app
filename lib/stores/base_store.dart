@@ -1,6 +1,6 @@
 
-import 'package:church_system/ui/cert_page.dart';
-import 'package:church_system/ui/home_page.dart';
+import 'package:faithconnect/ui/cert_page.dart';
+import 'package:faithconnect/ui/home_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';

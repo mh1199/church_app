@@ -1,4 +1,4 @@
-# church_system
+# faithconnect
 
 A new Flutter project.
 

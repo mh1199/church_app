@@ -1,4 +1,4 @@
-package com.example.church_system
+package com.mh.faithconnect
 
 import io.flutter.embedding.android.FlutterActivity
 

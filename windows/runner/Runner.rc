@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "church_system" "\0"
+            VALUE "CompanyName", "com.mh" "\0"
+            VALUE "FileDescription", "faithconnect" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "church_system" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "church_system.exe" "\0"
-            VALUE "ProductName", "church_system" "\0"
+            VALUE "InternalName", "faithconnect" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2024 com.mh. All rights reserved." "\0"
+            VALUE "OriginalFilename", "faithconnect.exe" "\0"
+            VALUE "ProductName", "FaithConnect" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

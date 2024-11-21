@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'dart:ui';
 import 'dart:io';
 
-import 'package:church_system/my_app.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:faithconnect/my_app.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,9 @@ import 'configs/routes_handler.dart';
 import 'helpers/constants.dart';
 import 'helpers/enums.dart';
 
+// firebase
+import 'package:firebase_core/firebase_core.dart';
+
 bool isFlutterLocalNotificationsInitialized = false;
 
 void main() async {
@@ -24,6 +29,19 @@ void main() async {
   // SecurityContext.defaultContext
   //     .setTrustedCertificatesBytes(data.buffer.asUint8List());
   // FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
+  // Initialize Firebase
+  await Firebase.initializeApp(); // Ensure Firebase is initialized
+
+  print('Firebase connection start............!');
+  try {
+    // Test Firestore connectivity (or replace with other Firebase service)
+    final collection = FirebaseFirestore.instance.collection('test');
+    await collection.add({'timestamp': DateTime.now().toString()});
+    print('Firebase connection successful!');
+  } catch (e) {
+    print('Firebase connection failed: $e');
+  }
 
   await EasyLocalization.ensureInitialized();
   await initLocator();

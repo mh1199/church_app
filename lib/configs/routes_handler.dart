@@ -1,9 +1,9 @@
 
-import 'package:church_system/ui/download_cert_page.dart';
-import 'package:church_system/ui/edit_account_page.dart';
-import 'package:church_system/ui/forgot_password_page.dart';
-import 'package:church_system/ui/login_page.dart';
-import 'package:church_system/ui/register_page.dart';
+import 'package:faithconnect/ui/download_cert_page.dart';
+import 'package:faithconnect/ui/edit_account_page.dart';
+import 'package:faithconnect/ui/forgot_password_page.dart';
+import 'package:faithconnect/ui/login_page.dart';
+import 'package:faithconnect/ui/register_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:fluro/fluro.dart';

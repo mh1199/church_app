@@ -1,6 +1,6 @@
 {
-    "name": "church_system",
-    "short_name": "church_system",
+    "name": "faithconnect",
+    "short_name": "faithconnect",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

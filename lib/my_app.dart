@@ -1,8 +1,8 @@
 
 import 'package:bot_toast/bot_toast.dart';
-import 'package:church_system/ui/base_page.dart';
-import 'package:church_system/ui/register_page.dart';
-import 'package:church_system/widgets/custom_page.dart';
+import 'package:faithconnect/ui/base_page.dart';
+import 'package:faithconnect/ui/register_page.dart';
+import 'package:faithconnect/widgets/custom_page.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
